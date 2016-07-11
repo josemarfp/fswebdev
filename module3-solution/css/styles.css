@@ -17,6 +17,10 @@ body {
   font-size: 2em;
 }
 
+#nav #navbar-nav{
+	width: 95%;
+}
+
 /** BODY **/
 .menu-text {
   margin: 3em 1em 0.5em 1em;  
