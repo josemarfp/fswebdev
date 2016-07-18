@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cemig</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCqfbl0UflGhK-8eziD7N-xm-LtSYzpg4s"></script>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>   
+    <script src="js/script.js"></script>
+    <script scr="js/jquery-3.1.0.min.js"></script>
+  </head>
+<body>
+  <header>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-static-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a href="index.html" class="pull-left">
+            <div id="logo-img"></div>
+          </a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand" class="visible-md" class="text-left">
+            <a id="top">A melhor energia do Brasil!</a> 
+          </div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav visible-xs">            
+            <li class="active text-center"><a href="#chicken-section">Pegar Coordenadas<span class="sr-only">(current)</span></a></li>
+            <li class="text-center"><a href="#beef-section">Enviar</a></li>
+            <li class="text-center"><a href="#sushi-section">Sobre</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
+
+  <div id="main-content" class="container">
+    <div id="home-tiles" class="row">
+      <div class="row" class="col-md-12">
+        <h2 id="menu-categories-title" class="text-center">Manejo de árvores</h2>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <section id="laudo-section" class="menu-tile">
+          <a href="#"><h3 class="text-center"><span>Localização</span></h3></a>          
+          <form class="menu-text">
+            <fieldset>
+              <legend>Dados Elétricos:</legend>
+              <label for="poda_alimentador">Alimentador</label>
+              <input id="poda_alimentador" type="text" name="Alimentador"><br>   
+
+              <label for="poda_regiao">Região</label>
+              <input id="poda_regiao" type="text" name="Regiao"><br>
+            </fieldset>
+
+            <fieldset>
+              <legend>Logradouro:</legend>
+              <label for="poda_municipio">Município</label>
+              <input id="poda_municipio" type="text" name="Municipio"><br>
+
+              <label for="poda_bairro">Bairro</label>
+              <input id="poda_bairro" type="text" name="Bairro"><br>              
+
+              <label for="poda_logradouro">Logradouro</label>
+              <input id="poda_logradouro" type="text" name="Logradouro"><br>
+
+              <label for="poda_numero">Número</label>
+              <input id="poda_numero" type="text" name="Numero"><br>
+
+              <label for="poda_complemento">Complemento</label>
+              <input id="poda_complemento" type="text" name="Complemento"><br>
+            </fieldset>            
+          </form>      
+        </section>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <section id="coordenada-section" class="menu-tile">
+          <a href="#"><h3 class="text-center"><span>Laudo</span></h3></a>
+          <form class="menu-text">
+            <fieldset>
+              <legend>Avaliação:</legend>          
+              <label for="poda_complexidade">Complexidade</label>
+              <input id="poda_complexidade" type="text" name="Complexidade"><br>
+
+              <label for="poda_risco">Risco</label>
+              <input id="poda_risco" type="text" name="risco"><br>
+              
+              <div class="col-md-6>
+                <label for="poda_necessaria">Poda</label>
+                <input id="poda_necessaria" type="radio" name="necessidade" checked>  
+              </div>
+              <div class="col-md-6>          
+                <label for="poda_supressao">Supressão</label>
+                <input id="poda_supressao" type="radio" name="necessidade">
+              </fieldset>
+
+              <label for="poda_especie">Espécie</label>
+              <select id="poda_especie" name="Espécie">
+                <option value="e1">Laranjeira</option>
+                <option value="e2">Cerejeira</option>
+                <option value="e3">Pau-Ferro</option>
+                <option value="e4">Jacaranda</option>
+              </select>
+            </fieldset>
+
+            <fieldset>
+              <legend>Coordenadas:</legend> 
+              <label for="poda_latitude">Latitude</label>
+              <input id="poda_latitude" type="text" name="Latitude"><br>
+
+              <label for="poda_longitude">Longitude</label>
+              <input id="poda_longitude" type="text" name="Longitude"><br>
+
+              <button type="button" onclick="getLocation()">Pegar coordendas</button>
+            </fieldset>
+          </form>  
+        </section>
+      </div>      
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <section id="mapa-section" class="menu-tile">
+          <a href="#"><h3 class="text-center"><span>Mapa</span></h3></a>
+          <div id="map-tile" class="menu-text">
+            
+          </div>
+        </section>
+      </div>
+    </div>
+  </div><!-- /.main-content -->
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
